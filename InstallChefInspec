@@ -39,3 +39,9 @@ Test Summary: 3 successful, 0 failures, 0 skipped
 
 Profile Summary: 1 successful control, 0 control failures, 0 controls skipped
 Test Summary: 3 successful, 0 failures, 0 skipped
+
+
+case2:
+Running with supermarket command with defined baselines
+inspec supermarket exec dev-sec/nginx-baseline  -t docker://e9794cfc0d10
+
