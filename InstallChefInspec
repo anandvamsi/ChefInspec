@@ -1,0 +1,41 @@
+Install Chef Spec
+curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
+
+Create a chef inpec profile
+inspec init profile <profilename>
+
+>> Example
+inspec init profile docker
+
+ ─────────────────────────── InSpec Code Generator ───────────────────────────
+
+Creating new profile at /home/ubuntu/docker
+ • Creating file README.md
+ • Creating directory /home/ubuntu/docker/controls
+ • Creating file controls/example.rb
+ • Creating file inspec.yml
+ 
+ 
+ Create a control file controls/port.rb
+ inspec exec ~ubuntu/docker/controls/port.rb -t docker://e9794cfc0d10
+ Note:- e9794cfc0d10 is the container id 
+
+>> Example
+inspec exec docker -t docker://e9794cfc0d10
+Profile:   InSpec Profile (docker)
+Version:   0.1.0
+Target:    docker://e9794cfc0d10dee753abce769c6f716c4fe59d9e10484a32c990f798d5dce4f2
+Target ID: da39a3ee-5e6b-5b0d-b255-bfef95601890
+
+  ✔  redis-03: Check if Redis Server is using the default port 6379
+     ✔  File /etc/nginx/nginx.conf content is expected not to match /^port\ 80/
+     ✔  File /etc/nginx/nginx.conf content is expected not to match /^port\ 0/
+     ✔  Port 80 is expected not to be listening
+
+
+Profile Summary: 1 successful control, 0 control failures, 0 controls skipped
+Test Summary: 3 successful, 0 failures, 0 skipped
+
+
+Profile Summary: 1 successful control, 0 control failures, 0 controls skipped
+Test Summary: 3 successful, 0 failures, 0 skipped
